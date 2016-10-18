@@ -1,0 +1,26 @@
+<div ng-controller="NavCtrl" class="navbar navbar-default" role="navigation" ng-hide="hideTopNav">
+  <div class="container">
+    <div class="navbar-header no-width">
+      <a class="navbar-logo" href="#/"><img class="m-xs" src="../assets/images/logo_nav.png"/></a>
+    </div>
+
+    <div class="nav navbar-nav navbar-left">
+      <div id="home" class="navbar-button" ng-click="changeState('home')"><i class="glyphicon glyphicon-home"></i></div>
+      <div id="search" class="navbar-button" ng-click="changeState('search')"><i class="glyphicon glyphicon-search"></i></div>
+    </div>
+
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}}&nbsp;<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!--<li><a ui-sref="profile">Profile</a></li>-->
+            <!--<li role="separator" class="divider"></li>-->
+            <li><a ng-click="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
