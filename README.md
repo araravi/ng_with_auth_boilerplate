@@ -20,3 +20,6 @@
 * Authentication is through ng-token-auth
 * Change deploy.sh credentials to your requirement
 * Refer to nginx.conf for a sample configuration for nginx on the serverrver
+
+##Things to do
+* Proper testing structure and samples, coming soon!
