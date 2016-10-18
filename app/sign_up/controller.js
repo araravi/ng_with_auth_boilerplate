@@ -4,15 +4,12 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$state', function ($scope, $au
     $auth.submitRegistration({
       name: $scope.user.name,
       email: $scope.user.email,
-      password: $scope.user.password,
-      role: 'evaluator'
+      password: $scope.user.password
     }).then(function (resp) {
         $state.go('home');
       })
       .catch(function (resp) {
-        console.log(resp);
         $scope.authError = resp.data.errors.full_messages[0];
-        console.log($scope.authError)
       });
   };
 
