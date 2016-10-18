@@ -1,5 +1,5 @@
 {
-  "name": "startupofrontend",
+  "name": "testApp",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
