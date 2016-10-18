@@ -16,6 +16,7 @@
 * ./deploy.sh
 
 ##Note
+* Environment config is done through ngconstant in Gruntfile. Injected into the app using ENV provider
 * Authentication is through ng-token-auth
 * Change deploy.sh credentials to your requirement
 * Refer to nginx.conf for a sample configuration for nginx on the serverrver
