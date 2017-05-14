@@ -1,4 +1,4 @@
-angular.module('testApp')
+angular.module('apollo')
   .config(['$authProvider', 'ENV',
     function($authProvider, ENV){
       $authProvider.configure({

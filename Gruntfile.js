@@ -25,6 +25,9 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  //Mod rewrite
+  var modRewrite = require('connect-modrewrite');
+
   grunt.loadNpmTasks('grunt-ng-constant');
 
   // Define the configuration for all the tasks
@@ -51,11 +54,19 @@ module.exports = function (grunt) {
           }
         }
       },
+      staging: {
+        constants: {
+          ENV: {
+            name: 'staging',
+            apiEndpoint: 'https://api.testhumanitas.ai'
+          }
+        }
+      },
       production: {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://backend.com'
+            apiEndpoint: 'https://api.humanitas.ai'
           }
         }
       }
@@ -110,6 +121,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -204,7 +216,7 @@ module.exports = function (grunt) {
     postcss: {
       options: {
         processors: [
-          require('autoprefixer-core')({browsers: ['last 1 version']})
+          require('autoprefixer-core')({ browsers: ['last 1 version'] })
         ]
       },
       server: {
@@ -232,23 +244,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       }
     },
 
@@ -368,7 +380,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'startupOFrontendApp',
+          module: 'apolloFrontendApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },

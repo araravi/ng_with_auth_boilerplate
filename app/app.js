@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular
-  .module('testApp', [
+  .module('apollo', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

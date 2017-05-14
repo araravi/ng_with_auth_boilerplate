@@ -1,5 +1,5 @@
 {
-  "name": "testApp",
+  "name": "apollo",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -41,5 +41,7 @@
   "scripts": {
     "test": "karma start test/karma.conf.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "connect-modrewrite": "^0.10.1"
+  }
 }

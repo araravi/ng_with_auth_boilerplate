@@ -1,14 +1,15 @@
-angular.module('testApp')
+angular.module('apollo')
     .run(['$rootScope', '$state', '$stateParams',
-            function ($rootScope, $state, $stateParams) {
-                $rootScope.$state = $state;
-                $rootScope.$stateParams = $stateParams;
-            }
-        ]
+        function ($rootScope, $state, $stateParams) {
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        }
+    ]
     )
-    .config(['$stateProvider', '$urlRouterProvider',
-        function ($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+        function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
+            $locationProvider.html5Mode(true);
             $urlRouterProvider.when('', '/');
 
             $stateProvider
