@@ -50,6 +50,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
+            host: 'http://localhost:9000',
             apiEndpoint: 'http://localhost:3000'
           }
         }
@@ -66,6 +67,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
+            host: 'https://q3-17.startup-o.com',
             apiEndpoint: 'https://api.humanitas.ai'
           }
         }
@@ -297,7 +299,7 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/{,*/}*.html', '<%= yeoman.dist %>/components/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       js: ['<%= yeoman.dist %>/scripts/{,*/}*.js'],
       options: {
@@ -421,6 +423,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '{,*/}*.html',
+            'components/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]

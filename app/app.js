@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular
-  .module('apollo', [
+  .module('testApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -9,7 +9,8 @@ var app = angular
     'ngSanitize',
     'ui.router',
     'ng-token-auth',
-    'config'
+    'config',
+    'pascalprecht.translate'
   ]);
 
 app.config(['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',

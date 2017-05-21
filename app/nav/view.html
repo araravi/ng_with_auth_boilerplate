@@ -1,26 +1,85 @@
-<div ng-controller="NavCtrl" class="navbar navbar-default" role="navigation" ng-hide="hideTopNav">
-  <div class="container">
-    <div class="navbar-header no-width">
-      <a class="navbar-logo" href="#/"><img class="m-xs" src="../assets/images/logo_nav.png"/></a>
+<div ng-controller="NavCtrl">
+  <header id="header" class="app-header navbar" role="menu">
+    <!-- header -->
+    <!-- navbar header -->
+    <div id="nav-head" class="navbar-header bg-dark">
+      <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
+          <i class="glyphicon glyphicon-cog"></i>
+        </button>
+      <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app">
+          <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+      <!-- brand -->
+      <div class="navbar-brand">
+         <a href="/" class="text-lt">
+          <span class="hidden-folded m-l-xs">Test App</span>
+        </a>
+      </div>
+      <!-- / brand -->
     </div>
+    <!-- / navbar header -->
 
-    <div class="nav navbar-nav navbar-left">
-      <div id="home" class="navbar-button" ng-click="changeState('home')"><i class="glyphicon glyphicon-home"></i></div>
-      <div id="search" class="navbar-button" ng-click="changeState('search')"><i class="glyphicon glyphicon-search"></i></div>
-    </div>
+    <!-- navbar collapse -->
+    <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+      <!-- buttons -->
+      
+      <!-- / buttons -->
 
-    <div>
+      <!-- nabar right -->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}}&nbsp;<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <!--<li><a ui-sref="profile">Profile</a></li>-->
-            <!--<li role="separator" class="divider"></li>-->
-            <li><a ng-click="logout()">Logout</a></li>
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
+            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img ng-src="{{user.avatar_url}}">
+                <i class="on md b-white bottom"></i>
+              </span>
+            <span class="hidden-sm hidden-md">{{user.name}}</span> <b class="caret"></b>
+          </a>
+          <!-- dropdown -->
+          <ul class="dropdown-menu animated fadeInRight w">
+            <li>
+              <a ui-sref="account.profile">Account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a ng-click="logout()">Logout</a>
+            </li>
           </ul>
+          <!-- / dropdown -->
         </li>
       </ul>
+      <!-- / navbar right -->
     </div>
-
-  </div>
+    <!-- / navbar collapse -->
+  </header>
+  <!-- / header -->
+  <!-- aside -->
+  <aside id="aside" class="app-aside hidden-xs bg-dark">
+    <div class="aside-wrap" style="position: fixed;width: inherit;">
+      <div class="navi-wrap">
+        <!-- nav -->
+        <nav class="navi clearfix">
+          <ul class="nav">
+            <!--<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                            <span>Navigation</span>
+                        </li>-->
+            <li id="home">
+              <a ng-click="changeState('home')" class="auto">
+                 <i class="glyphicon glyphicon-thumbs-up"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li id="search">
+              <a ng-click="changeState('search')" class="auto">
+                 <i class="glyphicon glyphicon-thumbs-up"></i>
+                <span>Search</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- nav -->
+      </div>
+    </div>
+  </aside>
+  <!-- / aside -->
 </div>

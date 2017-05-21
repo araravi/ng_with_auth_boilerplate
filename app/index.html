@@ -1,9 +1,9 @@
 <!doctype html>
-<html ng-app="apollo">
+<html ng-app="testApp">
 
 <head>
   <meta charset="utf-8">
-  <title>Humanitas Dashboard</title>
+  <title>Dashboard</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <base href="/">
@@ -12,12 +12,15 @@
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+  <link rel="stylesheet" href="bower_components/simple-line-icons/css/simple-line-icons.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/font-awesome.css">
   <link rel="stylesheet" href="styles/font.css">
   <link rel="stylesheet" href="styles/app.css">
+  <link rel="stylesheet" href="styles/style.css">
   <!-- endbuild -->
 </head>
 
@@ -29,16 +32,22 @@
 
   <!-- Add your site or application content here -->
 
-  <ui-view name="nav"></ui-view>
+  <div class="app app-header-fixed">
+    <ui-view name="nav"></ui-view>
 
-  <div class="container">
-    <ui-view name="content"></ui-view>
-  </div>
-
-  <div class="footer">
-    <div class="container">
-      <small class="text-muted" style="float:right">&copy; Humanitas 2017</small>
+    <div id="content" class="app-content" role="main">
+      <div class="app-content-body ">
+        <div class="col">
+          <ui-view name="content"></ui-view>
+        </div>
+      </div>
     </div>
+
+    <footer id="footer" class="app-footer" role="footer">
+      <div class="wrapper-md b-t bg-light">
+        <span class="pull-right"><a href ui-scroll="app" class="m-l-sm text-muted"></a></span>&copy; 2017 Test App
+      </div>
+    </footer>
   </div>
 
 
@@ -53,7 +62,6 @@
 
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
-
   </script>
 
   <!-- build:js(.) scripts/vendor.js -->
@@ -69,6 +77,8 @@
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/angular-cookie/angular-cookie.js"></script>
   <script src="bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -83,6 +93,11 @@
   <script src="search/controller.js"></script>
   <script src="sign_in/controller.js"></script>
   <script src="sign_up/controller.js"></script>
+
+  <script src="components/ui-jq/ui-jq.js"></script>
+  <script src="components/ui-jq/service.js"></script>
+  <script src="components/ui-toggleclass/ui-toggleclass.js"></script>
+  <script src="components/ui-scroll/ui-scroll.js"></script>
   <!-- endbuild -->
 </body>
 
