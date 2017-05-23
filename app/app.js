@@ -7,7 +7,10 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ui.bootstrap',
     'ui.router',
+    'ui.load',
+    'ui.jq',
     'ng-token-auth',
     'config',
     'pascalprecht.translate'
